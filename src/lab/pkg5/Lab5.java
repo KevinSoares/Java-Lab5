@@ -14,8 +14,19 @@ public class Lab5 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
+    public static void main(String[] args)
+	{
+	  if(args.length < 2)
+	  {
+	    System.err.println("Usage: java -jar lab_5.jar infile outfile");
+	    System.exit(99);
+	  }
+
+	  Cruncher dataManipulator = new Cruncher(args[0], args[1]);
+
+	  dataManipulator.openFiles();
+	  dataManipulator.findDistance();
+	  dataManipulator.writeRecords();
+	  dataManipulator.closeFiles();
+	}
 }
